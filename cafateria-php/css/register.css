@@ -1,0 +1,55 @@
+
+body{
+    background-image: url('https://www.christianschoolproducts.com/wp-content/uploads/sites/2/2021/01/school-cafeteria-1500x600.jpg'); 
+    background-size: 1500px 900px; /* Cover the entire element with the background image */
+    background-position: center; /* Center the background image */
+    background-repeat: no-repeat; /* Prevent background image from repeating */
+
+}
+
+.form {
+    width: 300px;
+  
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+    margin-top: 100px;
+    padding: 20px;
+    border: 2px gray solid;
+    backdrop-filter: blur(10px); /* Apply blur effect */
+}
+form {
+    width: 300px;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+    
+}
+
+
+
+form input[type="text"],
+form input[type="email"] {
+    width: 260px;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 55px;
+   outline: none;
+   border: none;
+   border-bottom: 3px solid black;
+   margin-left: 30px;
+ 
+
+}
+
+form input[type="submit"] {
+    width: 50%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-left: 65px;
+}
+
+form input[type="submit"]:hover {
+    background-color: #45a049;
+}
