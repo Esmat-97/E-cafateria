@@ -7,6 +7,9 @@ body{
 
 }
 
+
+
+
 .form {
     width: 300px;
   
@@ -17,13 +20,13 @@ body{
     border: 2px gray solid;
     backdrop-filter: blur(10px); /* Apply blur effect */
 }
+
 form {
     width: 300px;
     margin: 0 auto;
     font-family: Arial, sans-serif;
     
 }
-
 
 
 form input[type="text"],
@@ -35,7 +38,7 @@ form input[type="email"] {
    outline: none;
    border: none;
    border-bottom: 3px solid black;
-   margin-left: 30px;
+   margin-left: 20px;
  
 
 }
@@ -53,3 +56,4 @@ form input[type="submit"] {
 form input[type="submit"]:hover {
     background-color: #45a049;
 }
+
