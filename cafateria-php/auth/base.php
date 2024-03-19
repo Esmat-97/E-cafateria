@@ -12,8 +12,10 @@
 
 
 <?php
-$comming=$_COOKIE['username'];
-echo "hello" . $comming;
+$comming1=$_COOKIE['username'];
+$comming2=$_COOKIE['userrole'];
+echo "hello" . $comming1 ."<br>";
+echo "you are " . $comming2;
 ?>
 
 

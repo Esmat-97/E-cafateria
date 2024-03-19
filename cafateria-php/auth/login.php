@@ -84,6 +84,8 @@ echo empty($_POST['password']) ? "password is required<br>" :
 
     
 
+    
+
     $sql="SELECT * FROM MyGuests WHERE email='$email' AND  password='$pass' ";
     $data=mysqli_query($conn,$sql);
 
@@ -101,6 +103,7 @@ echo empty($_POST['password']) ? "password is required<br>" :
    $fetcheddata=mysqli_fetch_array($data);
 
    setcookie('username',$fetcheddata['email'],time() + 60*60);
+   setcookie('userrole',$fetcheddata['role'],time() + 60*60);
 
    header("location:base.php");
 }else{
