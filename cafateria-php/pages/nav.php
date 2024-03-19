@@ -10,7 +10,7 @@
 <body>
 
 <?php
-$comming1=$_COOKIE['username'];
+$comming1=$_COOKIE['usermail'];
 $comming2=$_COOKIE['userrole'];
 
 ?>
@@ -26,6 +26,8 @@ $comming2=$_COOKIE['userrole'];
 
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
+
+
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="../auth/base.php">Home</a>
         </li>
@@ -33,7 +35,7 @@ $comming2=$_COOKIE['userrole'];
           <a class="nav-link" href="#">Features</a>
         </li>
         <li class="nav-item">
-        <a class="nav-link" href="logout.php">logout</a>
+        <a class="nav-link" href="">about</a>
         </li>
 
         <?php
@@ -43,7 +45,7 @@ $comming2=$_COOKIE['userrole'];
 
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown link
+            Admin list
           </a>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="../pages/users.php">users</a></li>
@@ -58,8 +60,43 @@ $comming2=$_COOKIE['userrole'];
         ?>
 
       </ul>
+
     </div>
-  </div>
+
+
+<!-- rigth list -->
+
+
+
+    <div class="btn-group dropstart">
+  <a type="button" class=" dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+  <img
+            src="images.png"
+            class="rounded-circle"
+            height="25"
+            alt="Black and White Portrait of a Man"
+            loading="lazy"
+          />
+      </a>
+  <ul class="dropdown-menu">
+  <li><a class="dropdown-item" href="logout.php">logout</a></li>
+  <li><a class="dropdown-item" href="../pages/myaccount.php">MyAccount</a></li>
+  <li><a class="dropdown-item" href="#">
+
+   <?php
+   $comming1=$_COOKIE['usermail'];
+   echo  $comming1 ."<br>";
+   ?>
+
+</a></li>
+  </ul>
+</div>
+
+
+    </div>
+
+
+
 </nav>
 
 

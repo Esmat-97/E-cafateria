@@ -10,13 +10,9 @@
 <?php include "../pages/nav.php" ?>
 
 
+<?php include "../pages/hero.php" ?>
 
-<?php
-$comming1=$_COOKIE['username'];
-$comming2=$_COOKIE['userrole'];
-echo "hello" . $comming1 ."<br>";
-echo "you are " . $comming2;
-?>
+<?php include "../pages/footer.php" ?>
 
 
 </body>

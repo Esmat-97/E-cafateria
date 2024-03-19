@@ -96,3 +96,5 @@ if(mysqli_num_rows($data) > 0){
 
 </body>
 </html>
+
+<?php include "footer.php" ?>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="register.css">
+    <link rel="stylesheet" href="../css/register.css">
 <style>
     a{
     display: inline-block;
@@ -102,8 +102,12 @@ echo empty($_POST['password']) ? "password is required<br>" :
 
    $fetcheddata=mysqli_fetch_array($data);
 
-   setcookie('username',$fetcheddata['email'],time() + 60*60);
-   setcookie('userrole',$fetcheddata['role'],time() + 60*60);
+   setcookie('usermail',$fetcheddata['email'],time() + 60*60,'/');
+   setcookie('userfname',$fetcheddata['firstName'],time() + 60*60,'/');
+   setcookie('userlname',$fetcheddata['lastName'],time() + 60*60,'/');
+   setcookie('userrole',$fetcheddata['role'],time() + 60*60,'/');
+   setcookie('reg_date',$fetcheddata['reg_date'],time() + 60*60,'/');
+  
 
    header("location:base.php");
 }else{
