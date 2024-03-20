@@ -54,7 +54,7 @@ echo "Connected successfully";
 
 /* select table */
 
-$sql="SELECT * FROM MyGuests  ";
+$sql="SELECT * FROM MyGuests ";
 $data=mysqli_query($conn,$sql);
 
 if ($data) {

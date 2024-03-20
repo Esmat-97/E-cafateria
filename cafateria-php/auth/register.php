@@ -101,6 +101,17 @@ echo empty($_POST['password']) ? "password is required<br>" :
     } else {
       echo "Error: " . $sql . "<br>" . mysqli_error($conn);
     }
+
+    if($role === "admin"){
+      $sql="INSERT INTO Admins (firstName, lastName, email, password ,reg_date)
+      VALUES ('$firstName', '$lastName', '$email', '$pass','$reg_date')";
+      
+      if (mysqli_query($conn, $sql)) {
+        echo "New record created successfully";
+      } else {
+        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+      }
+    }
     
     mysqli_close($conn);
 }
