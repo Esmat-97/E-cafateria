@@ -48,9 +48,7 @@ if ($data) {
 
 if(mysqli_num_rows($data) > 0){
 
-    $i = 1; 
-
-    while($fetcheddata=mysqli_fetch_array($data)) {
+ while( $fetcheddata=mysqli_fetch_array($data) ){
  ?>
 
   <div class="col-1">
@@ -58,34 +56,44 @@ if(mysqli_num_rows($data) > 0){
       <img src="../upload/<?php echo $fetcheddata['image'] ?>" class="card-img-top">
       <div class="card-body">
         <h5 class="card-title"><?php echo $fetcheddata['product_name'] ?></h5>
-        <p class="card-text"></p>
+        <p class="card-text"><?php echo $fetcheddata['price'] ."$" ?></p> 
+
+      <!--show more  -->
+
+      <?php
+$comming=$_COOKIE['userrole'];
+if($comming ==="admin"){
+?>
+  <?php include 'showMore.php' ?>
+  <?php include 'delete.php' ?>
+
+  <?php
+}
+  ?>
+
       </div>
     </div>
   </div>
 
  <?php
 
-      $i++; 
+    
      
     }
 
-}
+  }
         
     ?>
 
 </div>
 
 
+
+
   
-  <!-- Pagination -->
-  <ul class="pagination">
-    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-    <li class="page-item"><a class="page-link" href="#">1</a></li>
-    <li class="page-item"><a class="page-link" href="#">2</a></li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
-    <li class="page-item"><a class="page-link" href="#">Next</a></li>
-  </ul>
-</div>
+
+
+
 
 </body>
 </html>

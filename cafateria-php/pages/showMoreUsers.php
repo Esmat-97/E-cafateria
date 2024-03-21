@@ -1,3 +1,10 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,27 +26,20 @@
 <div class="container">
   <h2>Table of users</h2>
 
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Email</th>
-        <th>firstName</th>
-        <th>delete</th>
-        <th>show more</th>
-      </tr>
-    </thead>
-
-
-    <tbody>
+  
       <!-- Sample data, you can replace this with your actual data -->
 
   <?php include 'connection.php' ?>
 
 <?php
 
+if(isset($_POST['more'])){
+
+$selectedmail=$_POST['productToDel'];
+
 /* select table */
 
-$sql="SELECT * FROM MyGuests ";
+$sql="SELECT * FROM MyGuests where email='$selectedmail'";
 $data=mysqli_query($conn,$sql);
 
 if ($data) {
@@ -61,37 +61,17 @@ if(mysqli_num_rows($data) > 0){
     while($fetchedUsers=mysqli_fetch_array($data)) {
       ?>
 
-      <tr>
-
-        <td><?php echo $fetchedUsers['email'];?> </td>
-      <td><?php echo $fetchedUsers['firstName']; ?> </td> 
-      <td>
-         <form  method="post" action="">
-        <input type="hidden"   name="productToDel" value="<?php  echo $fetchedUsers['email']  ?>">
-        <button type="submit" name="del"  class="btn btn-danger">delete</button>
-        </form>
-      </td>
-
-      <td>
-      <form  method="post" action="showMoreUsers.php">
-        <input type="hidden"   name="productToDel" value="<?php  echo $fetchedUsers['email']  ?>">
-        <button type="submit" name="more" class="btn btn-primary">
-  show more
-    </button>
-        </form>
-    
-
-
-        
-      </td>
+<div class="card mb-3">
+  <div class="card-body">
+    <h5 class="card-title"><?php echo $fetchedUsers['firstName'];?></h5>
+    <p class="card-text"><?php echo $fetchedUsers['lastName'];?></p>
+    <p class="card-text"><?php echo $fetchedUsers['role'];?></p>
+  </div>
+</div>
     
 </div>
 </body>
 </html>
-
-
-
-
 
 
        <?php
@@ -100,11 +80,16 @@ if(mysqli_num_rows($data) > 0){
 
 }
         
+}
       ?>
 
 
-  
+ 
 
 
-<?php include "deleteUsers.php" ?>
+
+
+</body>
+</html>
+
 
