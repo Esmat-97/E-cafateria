@@ -28,10 +28,18 @@ $sql="SELECT * FROM products ";
 $data=mysqli_query($conn,$sql);
 
 if ($data) {
-  echo "getting data successfully";
-} else {
-  echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-}
+
+
+?>
+
+  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+<?php  echo "getting data successfully"; ?>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+
+<?php
+ 
+} 
 
 ?>
         <div class="row row-cols-1 row-cols-md-3 g-4">

@@ -50,7 +50,7 @@ $comming2=$_COOKIE['userrole'];
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="../pages/users.php">users</a></li>
             <li><a class="dropdown-item" href="../pages/addproduct.php">Add products</a></li>
-            <li><a class="dropdown-item" href="#">Add users</a></li>
+            <li><a class="dropdown-item" href="../pages/addusers.php">Add users</a></li>
           </ul>
         </li>
 

@@ -62,6 +62,7 @@
    $comming3=$_COOKIE['userfname'];
    $comming4=$_COOKIE['userlname'];
    $comming5=$_COOKIE['reg_date'];
+   $comming6=$_COOKIE['guests_id'];
    
    ?>
    
@@ -98,7 +99,7 @@ if($comming2 === "admin"){
 
 /* select table */
 
-$sql="SELECT * FROM products WHERE guests_id=3 ";
+$sql="SELECT * FROM products WHERE guests_id=$comming6 ";
 $data=mysqli_query($conn,$sql);
 
 if ($data) {
@@ -128,6 +129,7 @@ if(mysqli_num_rows($data) > 0){
       </div>
     </div>
   </div>
+
 
  <?php
 

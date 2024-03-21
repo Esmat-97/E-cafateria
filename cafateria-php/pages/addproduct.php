@@ -7,6 +7,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<?php
+   $comming1=$_COOKIE['usermail'];
+   $comming2=$_COOKIE['userrole'];
+   $comming3=$_COOKIE['userfname'];
+   $comming4=$_COOKIE['userlname'];
+   $comming5=$_COOKIE['reg_date'];
+   $comming6=$_COOKIE['guests_id'];
+   
+   ?>
 <body>
 <form action="" method="post" enctype="multipart/form-data">
 
@@ -43,40 +52,7 @@
     
     <div class="form-group col-md-4">
       <label for="inputState">Admin id</label>
-
-      <select id="inputState" class="form-control" name="selected_option">
-
-
-
-      <?php include 'connection.php' ?>
-      <?php
-
-/* display IDs */
-      $sql="SELECT * FROM Admins ";
-$data=mysqli_query($conn,$sql);
-
-if ($data) {
-  echo "getting data successfully";
-} else {
-  echo "Error: ";
-}
-
-
-
-
-if(mysqli_num_rows($data) > 0){
-
-    $i = 1; 
-    while($fetcheddata=mysqli_fetch_array($data)) {
-      echo " <option>{$fetcheddata['guests_id']}</option> ";
-      $i++; 
-    }
-
-}
-        
-      ?> 
-       
-      </select>
+      <input type="text" class="form-control" id="inputAddress2" name="selected_option" value='<?php echo $comming6 ?>'>
     </div>
 
   </div>
@@ -114,15 +90,20 @@ if(isset($_POST['insert'])){
 
 /*insert data*/    
 
-
     $sql="INSERT INTO products (product_name,   price,   stock_quantity,  image,  guests_id ,reg_date)
                       VALUES ('$product_name','$price','$stock_quantity', '$image', '$selected_option','$reg_date')";
     
     if (mysqli_query($conn, $sql)) {
-      echo "New record created successfully";
-    } else {
-      echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-    }
+      ?>
+
+      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+           <?php echo "New record created successfully";  ?>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+     </div>
+      
+
+      <?php
+    } 
     
     mysqli_close($conn);
 }

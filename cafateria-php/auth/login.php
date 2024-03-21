@@ -107,6 +107,7 @@ echo empty($_POST['password']) ? "password is required<br>" :
    setcookie('userlname',$fetcheddata['lastName'],time() + 60*60,'/');
    setcookie('userrole',$fetcheddata['role'],time() + 60*60,'/');
    setcookie('reg_date',$fetcheddata['reg_date'],time() + 60*60,'/');
+   setcookie('guests_id',$fetcheddata['guests_id'],time() + 60*60,'/');
   
 
    header("location:base.php");
