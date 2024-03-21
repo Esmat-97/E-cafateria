@@ -83,31 +83,69 @@
             </div>
          
         </form>
+
+        <?php
+
+if($comming2 === "admin"){
    
+?>
+<h1>products history</h1>
 
-        <h2>Order History</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Order Number</th>
-                    <th>Date</th>
-                    <th>Items</th>
-                    <th>Total</th>
-                    <th>Status</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>#1234</td>
-                    <td>01/01/2023</td>
-                    <td>Burger, Fries, Soda</td>
-                    <td>$15.99</td>
-                    <td>Completed</td>
-                </tr>
-            </tbody>
-        </table>
+<?php include 'connection.php' ?>
+
+
+<?php
+
+/* select table */
+
+$sql="SELECT * FROM products WHERE guests_id=3 ";
+$data=mysqli_query($conn,$sql);
+
+if ($data) {
+  echo "getting data successfully";
+} else {
+  echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+}
+
+?>
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+
+<?php
+
+if(mysqli_num_rows($data) > 0){
+
+    $i = 1; 
+
+    while($fetcheddata=mysqli_fetch_array($data)) {
+ ?>
+
+  <div class="col-1">
+    <div class="card ">
+      <img src="../upload/<?php echo $fetcheddata['image'] ?>" class="card-img-top">
+      <div class="card-body">
+        <h5 class="card-title"><?php echo $fetcheddata['product_name'] ?></h5>
+        <p class="card-text"></p>
+      </div>
     </div>
-</body>
-</html>
+  </div>
 
+ <?php
+
+      $i++; 
+     
+    }
+
+}
+        
+    ?>
+
+</div>
+
+
+
+<?php
+
+}
+
+?>
 <?php include "footer.php" ?>

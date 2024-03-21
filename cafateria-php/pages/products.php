@@ -10,35 +10,21 @@
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+ 
 </head>
 <body>
 
 
-<?php include "nav.php" ?>
-
-<div class="container">
-  <h2>Table of users</h2>
-
-  <table class="table">
-    <thead>
-      <tr>
-        <th>#</th>
-        <th>Email</th>
-        <th>firstName</th>
-      </tr>
-    </thead>
 
 
-    <tbody>
-      <!-- Sample data, you can replace this with your actual data -->
+<?php include 'connection.php' ?>
 
-  <?php include 'connection.php' ?>
 
 <?php
 
 /* select table */
 
-$sql="SELECT * FROM MyGuests ";
+$sql="SELECT * FROM products ";
 $data=mysqli_query($conn,$sql);
 
 if ($data) {
@@ -47,25 +33,42 @@ if ($data) {
   echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 }
 
+?>
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+
+<?php
 
 if(mysqli_num_rows($data) > 0){
 
     $i = 1; 
+
     while($fetcheddata=mysqli_fetch_array($data)) {
-      echo "<tr><td>$i</td><td>{$fetcheddata['email']}</td><td>{$fetcheddata['firstName']}</td></tr>";
+ ?>
+
+  <div class="col-1">
+    <div class="card ">
+      <img src="../upload/<?php echo $fetcheddata['image'] ?>" class="card-img-top">
+      <div class="card-body">
+        <h5 class="card-title"><?php echo $fetcheddata['product_name'] ?></h5>
+        <p class="card-text"></p>
+      </div>
+    </div>
+  </div>
+
+ <?php
+
       $i++; 
+     
     }
 
 }
         
-      ?>
+    ?>
+
+</div>
 
 
-    </tbody>
-  </table>
   
-
-
   <!-- Pagination -->
   <ul class="pagination">
     <li class="page-item"><a class="page-link" href="#">Previous</a></li>
@@ -79,4 +82,4 @@ if(mysqli_num_rows($data) > 0){
 </body>
 </html>
 
-<?php include "footer.php" ?>
+

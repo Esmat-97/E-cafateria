@@ -8,7 +8,7 @@
     <title>Document</title>
 </head>
 <body>
-<form action="" method="post">
+<form action="" method="post" enctype="multipart/form-data">
 
 <!-- row -->
   <div class="form-row">
@@ -18,10 +18,6 @@
       <input type="text" class="form-control" id="inputEmail4" name="product_name" >
     </div>
 
-    <div class="form-group col-md-6">
-      <label for="inputPassword4">description</label>
-      <input type="text" class="form-control" id="inputPassword4" name="description" >
-    </div>
   </div>
 
 
@@ -38,7 +34,7 @@
 
   <div class="form-group">
     <label for="inputAddress2">image </label>
-    <input type="file" class="form-control" id="inputAddress2" name="image">
+    <input type="file" class="form-control" id="inputAddress2" name="uploadFile">
   </div>
 
   <!-- another row -->
@@ -51,23 +47,9 @@
       <select id="inputState" class="form-control" name="selected_option">
 
 
+
+      <?php include 'connection.php' ?>
       <?php
-
-/* connect database*/    
-
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname="cafateria_php";
-
-$conn = mysqli_connect($servername, $username, $password , $dbname);
-if (!$conn) {
-    echo "Error: Unable to connect to MySQL." ;
-}
-echo "Connected successfully";
-
-
-
 
 /* display IDs */
       $sql="SELECT * FROM Admins ";
@@ -109,53 +91,32 @@ if(mysqli_num_rows($data) > 0){
 
 
 
-
-
-
-
-
-
+<?php include 'connection.php' ?>
 
 <?php
 
 if(isset($_POST['insert'])){
  
     $product_name=$_POST['product_name'];
-    $description=$_POST['description'];
     $price=$_POST['price'];
     $stock_quantity=$_POST['stock_quantity'];
-    $image=$_POST['image'];
     $selected_option=$_POST['selected_option'];
-    $reg_date = date("Y-m-d H:i:s");
 
-echo $product_name ."<br>";
-echo $description ."<br>";
-echo $price ."<br>";
-echo $stock_quantity ."<br>";
-echo $image ."<br>";
-echo $selected_option ."<br>";
-echo $reg_date ."<br>";
+    $reg_date = date("Y-m-d H:i:s");                           //date
 
+  
+     ?>
+
+<?php include 'images.php' ?>
+
+     <?php
     
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname="cafateria_php";
-
-$conn = mysqli_connect($servername, $username, $password , $dbname);
-if (!$conn) {
-    echo "Error: Unable to connect to MySQL." ;
-}
-echo "Connected successfully";
-
-
-
 
 /*insert data*/    
 
 
-    $sql="INSERT INTO MyGuests (product_name,description, price, stock_quantity,  image,  guests_id ,reg_date)
-                      VALUES ('$product_name','$description','$price','$stock_quantity', '$image', '$selected_option','$reg_date')";
+    $sql="INSERT INTO products (product_name,   price,   stock_quantity,  image,  guests_id ,reg_date)
+                      VALUES ('$product_name','$price','$stock_quantity', '$image', '$selected_option','$reg_date')";
     
     if (mysqli_query($conn, $sql)) {
       echo "New record created successfully";

@@ -12,6 +12,9 @@
 
 <?php include "../pages/hero.php" ?>
 
+<?php include "../pages/products.php" ?>
+
+
 <?php include "../pages/footer.php" ?>
 
 
