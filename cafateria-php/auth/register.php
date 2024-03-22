@@ -39,7 +39,6 @@
     <p><input type="text" name="lastName" placeholder="lastName"></p>
     <p><input type="email" name="email" placeholder="email"></p>
     <p><input type="text" name="password" placeholder="password"></p>
-    <p><input type="text" name="role" placeholder="role"></p>
     <input type="submit" name="submit" value="submit">
 
 </form>
@@ -93,8 +92,8 @@ echo empty($_POST['password']) ? "password is required<br>" :
 
 
 
-    $sql="INSERT INTO MyGuests (firstName, lastName, email, password ,role,reg_date)
-    VALUES ('$firstName', '$lastName', '$email', '$pass', '$role','$reg_date')";
+    $sql="INSERT INTO MyGuests (firstName, lastName, email, password ,reg_date)
+                    VALUES ('$firstName', '$lastName', '$email', '$pass', '$reg_date')";
     
     if (mysqli_query($conn, $sql)) {
       echo "New record created successfully";
