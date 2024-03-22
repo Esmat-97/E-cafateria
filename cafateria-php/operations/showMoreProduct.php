@@ -17,29 +17,30 @@
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </head>
 <body>
 
 
-<?php include "nav.php" ?>
+
 
 <div class="container">
-  <h2>Table of users</h2>
+
 
   
-      <!-- Sample data, you can replace this with your actual data -->
+   
 
   <?php include 'connection.php' ?>
 
 <?php
 
-if(isset($_POST['more'])){
+if(isset($_POST['moreP'])){
 
-$selectedmail=$_POST['productToDel'];
+$selectedmail=$_POST['showProducts'];
 
 /* select table */
 
-$sql="SELECT * FROM MyGuests where email='$selectedmail'";
+$sql="SELECT * FROM products where  product_name='$selectedmail'";
 $data=mysqli_query($conn,$sql);
 
 if ($data) {
@@ -47,7 +48,7 @@ if ($data) {
 
   
   <div class="alert alert-warning alert-dismissible fade show" role="alert">
-  <?php echo "getting data successfully"; ?>
+  <?php echo "getting data successfully" ?>
   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>
 
@@ -63,9 +64,9 @@ if(mysqli_num_rows($data) > 0){
 
 <div class="card mb-3">
   <div class="card-body">
-    <h5 class="card-title"><?php echo $fetchedUsers['firstName'];?></h5>
-    <p class="card-text"><?php echo $fetchedUsers['lastName'];?></p>
-    <p class="card-text"><?php echo $fetchedUsers['role'];?></p>
+    <h5 class="card-title"><?php echo $fetchedUsers['product_name'];?></h5>
+    <p class="card-text"><?php echo $fetchedUsers['price'];?></p>
+  
   </div>
 </div>
     

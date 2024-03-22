@@ -73,7 +73,7 @@ if(mysqli_num_rows($data) > 0){
       </td>
 
       <td>
-      <form  method="post" action="showMoreUsers.php">
+      <form  method="post" action="../operations/showMoreUsers.php">
         <input type="hidden"   name="productToDel" value="<?php  echo $fetchedUsers['email']  ?>">
         <button type="submit" name="more" class="btn btn-primary">
   show more
@@ -106,5 +106,6 @@ if(mysqli_num_rows($data) > 0){
   
 
 
-<?php include "deleteUsers.php" ?>
+
+<?php include "../operations/deleteUsers.php" ?>
 

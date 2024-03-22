@@ -15,7 +15,7 @@
 <br>
 <br>
 
-<?php include "../pages/products.php" ?>
+<?php include "products.php" ?>
 
 <br>
 <br>
