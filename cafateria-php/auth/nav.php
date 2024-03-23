@@ -32,10 +32,10 @@ $comming2=$_COOKIE['userrole'];
           <a class="nav-link active" aria-current="page" href="../auth/base.php">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="addproduct.php">Features</a>
+          <a class="nav-link" href="#">Features</a>
         </li>
         <li class="nav-item">
-        <a class="nav-link" href="">about</a>
+        <a class="nav-link" href="#">about</a>
         </li>
 
         <?php
@@ -49,8 +49,10 @@ $comming2=$_COOKIE['userrole'];
           </a>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="../pages/users.php">users</a></li>
+            <li><a class="dropdown-item" href="../pages/orders.php">orders</a></li>
             <li><a class="dropdown-item" href="../pages/addproduct.php">Add products</a></li>
             <li><a class="dropdown-item" href="../pages/addusers.php">Add users</a></li>
+           
           </ul>
         </li>
 
