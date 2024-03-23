@@ -161,6 +161,14 @@ if(mysqli_num_rows($data) > 0){
         <td><?php echo $fetchedorders['product_name'];?> </td>
       <td><?php echo $fetchedorders['status']; ?> </td> 
       <td><?php echo $fetchedorders['order_date']; ?> </td> 
+      <td>
+        <form action="" method="post">
+
+        <input type="hidden" name="name" value="<?php echo $fetchedorders['product_name'];?> ">
+        <input type="hidden" name="id" value="<?php echo $comming6;?> ">
+        <input type="submit" name="deleteOrder" value="delete product">
+        </form>
+      </td>
      
     
 </div>
@@ -180,3 +188,4 @@ if(mysqli_num_rows($data) > 0){
 }
       ?>
 
+<?php include '../operations/deleteOrder.php' ?>

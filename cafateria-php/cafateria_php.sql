@@ -40,7 +40,7 @@ CREATE TABLE orders (
     order_id INT AUTO_INCREMENT PRIMARY KEY,
     order_date datetime,
      status enum('accepted','pending') default 'pending',
-	product_name  varchar(50) unique,
+	product_name  varchar(50) ,
     guests_id INT NOT NULL,
     FOREIGN KEY (guests_id) REFERENCES MyGuests (guests_id),
      FOREIGN KEY (product_name) REFERENCES products (product_name)
