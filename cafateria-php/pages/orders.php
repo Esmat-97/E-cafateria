@@ -20,10 +20,11 @@
   <table class="table">
     <thead>
       <tr>
-        <th>Email</th>
-        <th>firstName</th>
+        <th>product</th>
+        <th>status</th>
         <th>date</th>
-        <th>guest_id</th>
+        <th>name</th>
+        <th>mail</th>
       </tr>
     </thead>
 
@@ -37,7 +38,9 @@
 
 /* select table */
 
-$sql="SELECT * FROM orders ";
+$sql="SELECT *
+FROM orders
+INNER JOIN MyGuests ON orders.guests_id=MyGuests.guests_id;";
 $data=mysqli_query($conn,$sql);
 
 if ($data) {
@@ -64,7 +67,8 @@ if(mysqli_num_rows($data) > 0){
         <td><?php echo $fetchedUsers['product_name'];?> </td>
       <td><?php echo $fetchedUsers['status']; ?> </td> 
       <td><?php echo $fetchedUsers['order_date']; ?> </td> 
-      <td><?php echo $fetchedUsers['guests_id']; ?> </td> 
+      <td><?php echo $fetchedUsers['firstName']; ?> </td> 
+      <td><?php echo $fetchedUsers['email']; ?> </td> 
     
 </div>
 </body>

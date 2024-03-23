@@ -24,7 +24,10 @@
 
 /* select table */
 
-$sql="SELECT * FROM products ";
+$sql="SELECT *
+FROM products
+INNER JOIN MyGuests ON products.guests_id = MyGuests.guests_id; ";
+
 $data=mysqli_query($conn,$sql);
 
 if ($data) {
@@ -64,6 +67,8 @@ $comming=$_COOKIE['userrole'];
 $comming2=$_COOKIE['guests_id'];
 if($comming ==="admin"){
 ?>
+
+<p class="card-text"><?php echo $fetcheddata['email']; ?></p> 
         
          <form  method="post" action="">
         <input type="hidden"   name="productToDel" value="<?php  echo $fetcheddata['product_name']  ?>">
