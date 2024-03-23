@@ -101,76 +101,7 @@
          
         </form>
 
-        <?php
-
-if($comming2 === "admin"){
-   
-?>
-<h1>products history</h1>
-
-<?php include 'connection.php' ?>
-
-
-<?php
-
-/* select table */
-
-$sql="SELECT * FROM products WHERE guests_id=$comming6 ";
-$data=mysqli_query($conn,$sql);
-
-if ($data) {
-  echo "getting data successfully";
-} else {
-  echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-}
-
-?>
-
-
-
-
-        <div class="row row-cols-1 row-cols-md-3 g-4">
-
-<?php
-
-if(mysqli_num_rows($data) > 0){
-
-    $i = 1; 
-
-    while($fetcheddata=mysqli_fetch_array($data)) {
- ?>
-
-  <div class="col-1">
-    <div class="card ">
-      <img src="../upload/<?php echo $fetcheddata['image'] ?>" class="card-img-top">
-      <div class="card-body">
-        <h5 class="card-title"><?php echo $fetcheddata['product_name'] ?></h5>
-        <p class="card-text"></p>
-      </div>
-    </div>
-  </div>
-
-
- <?php
-
-      $i++; 
-     
-    }
-
-}
         
-    ?>
-
-</div>
-
-
-
-<?php
-
-}
-
-
-?>
 
 
 
